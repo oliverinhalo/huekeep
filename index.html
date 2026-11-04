@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Huekeep — fix WCAG contrast without changing the hue</title>
+    <meta
+      name="description"
+      content="Paste a colour pair that fails WCAG contrast and get the nearest passing colour with the same hue. Free, offline, no sign-up."
+    />
+    <link rel="canonical" href="https://huekeep.pages.dev/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Huekeep — fix WCAG contrast without changing the hue" />
+    <meta
+      property="og:description"
+      content="Paste a colour pair that fails WCAG contrast and get the nearest passing colour with the same hue. Free, offline, no sign-up."
+    />
+    <meta property="og:image" content="/og.png" />
+    <meta property="og:url" content="https://huekeep.pages.dev/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0c0c10" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Huekeep",
+        "description": "Paste a colour pair that fails WCAG contrast and get the nearest passing colour with the same hue. Free, offline, no sign-up.",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+
+    <script>
+      // Apply the stored theme before first paint so there is no flash.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+      } catch (e) {
+        /* private mode: fall back to the media query */
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      href="/node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2"
+    />
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

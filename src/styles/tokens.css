@@ -1,0 +1,119 @@
+/* Design tokens.
+ *
+ * Phase 4 replaces these values. Every app must. Shipping the template's palette
+ * is the clearest tell of an unconsidered app — see
+ * .claude/skills/ship-weekly-app/references/design-direction.md
+ *
+ * Rule: components reference tokens, never raw colour values. */
+
+:root {
+  /* Neutral ramp — hue-shifted, because pure grey reads cheap. */
+  --n-50: #f7f5f0;
+  --n-100: #efece5;
+  --n-200: #e2ded4;
+  --n-300: #cfcabd;
+  --n-400: #a29d90;
+  --n-500: #6b6872;
+  --n-600: #55525c;
+  --n-700: #3d3b44;
+  --n-800: #26252b;
+  --n-900: #17161a;
+
+  --accent-500: #5b43e0;
+  --accent-600: #4b2fd6;
+  --accent-contrast: #ffffff;
+
+  --danger: #b3261e;
+  --success: #1e6b3c;
+
+  /* Semantic layer — this is what components use. */
+  --surface: var(--n-50);
+  --surface-raised: #fffefb;
+  --surface-sunken: var(--n-100);
+  --border: var(--n-200);
+  --border-strong: var(--n-300);
+  --text: var(--n-900);
+  --text-muted: var(--n-600);
+  --text-faint: var(--n-500);
+  --accent: var(--accent-600);
+  --accent-text: var(--accent-contrast);
+  --focus: var(--accent-500);
+
+  /* Space — one scale, no values between its steps. */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-6: 1.5rem;
+  --s-8: 2rem;
+  --s-12: 3rem;
+  --s-16: 4rem;
+
+  /* Type — a 1.25 scale. Use only its steps. */
+  --t-xs: 0.75rem;
+  --t-sm: 0.875rem;
+  --t-base: 1rem;
+  --t-lg: 1.25rem;
+  --t-xl: 1.5625rem;
+  --t-2xl: 1.953rem;
+  --t-3xl: 2.441rem;
+
+  --font-sans: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --radius: 2px;
+  --radius-lg: 2px;
+
+  /* Shadows are tinted, never pure black. */
+  --shadow-sm: 0 1px 2px rgb(23 22 26 / 0.06);
+  --shadow: 0 2px 8px -2px rgb(23 22 26 / 0.1), 0 1px 3px rgb(23 22 26 / 0.06);
+
+  --dur-state: 120ms;
+  --dur-move: 200ms;
+  --dur-enter: 300ms;
+  --ease-enter: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Dark mode is a designed palette, not an inversion. Surfaces lift off pure
+ * black, the accent desaturates, borders soften.
+ *
+ * Declared twice, without CSS nesting, so it works without a transpile step:
+ * once for the system preference (unless the user chose light), once for an
+ * explicit choice. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --surface: #0c0c10;
+    --surface-raised: #15151b;
+    --surface-sunken: #08080b;
+    --border: #25252e;
+    --border-strong: #3a3a47;
+    --text: #ececf1;
+    --text-muted: #a7a7b4;
+    --text-faint: #8a8a98;
+    --accent: #a99dff;
+    --accent-text: #0c0c10;
+    --focus: #a99dff;
+    --danger: #f08a82;
+    --success: #7fd1a0;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow: 0 2px 10px -2px rgb(0 0 0 / 0.5);
+  }
+}
+
+:root[data-theme='dark'] {
+  --surface: #0c0c10;
+  --surface-raised: #15151b;
+  --surface-sunken: #08080b;
+  --border: #25252e;
+  --border-strong: #3a3a47;
+  --text: #ececf1;
+  --text-muted: #a7a7b4;
+  --text-faint: #8a8a98;
+  --accent: #a99dff;
+  --accent-text: #0c0c10;
+  --focus: #a99dff;
+  --danger: #f08a82;
+  --success: #7fd1a0;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow: 0 2px 10px -2px rgb(0 0 0 / 0.5);
+}
